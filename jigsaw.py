@@ -1278,7 +1278,7 @@ class JigsawFile(JigsawCore):
         print('Decrypting file ......')
         ofile = open(self.decryptfilename, 'wb')
         self.keycode = self.keycode['AA']       # for Jigsaw version 1 
-        block_sequence = self.keycode.keys()
+        block_sequence = list(self.keycode.keys())
         block_sequence.sort()
         actual = 0
         expected = 0
@@ -1306,7 +1306,7 @@ class JigsawFile(JigsawCore):
         print('Decrypting file ......')
         ofile = open(self.decryptfilename, 'wb')
         self.keycode = self.keycode['AA']       # for Jigsaw version 1 
-        block_sequence = self.keycode.keys()
+        block_sequence = list(self.keycode.keys())
         block_sequence.sort()
         actual = 0
         expected = 0
@@ -1335,7 +1335,7 @@ class JigsawFile(JigsawCore):
         print('Decrypting file ......')
         ofile = open(self.decryptfilename, 'wb')
         self.keycode = self.keycode['AA']       # for Jigsaw version 1 
-        block_sequence = self.keycode.keys()
+        block_sequence = list(self.keycode.keys())
         block_sequence.sort()
         actual = 0
         expected = 0

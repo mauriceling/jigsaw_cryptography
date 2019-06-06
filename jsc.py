@@ -19,6 +19,7 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
 '''
 
+import math
 import os
 import sys
 from pprint import pprint
@@ -32,6 +33,26 @@ except ImportError:
     import fire
 
 import jigsaw
+
+
+def sufficientBlockSize(filename):
+    """
+    Function to calculate the block size needed to reach AES-256 
+    key permutation of 94**32.
+    
+    Example usage:
+
+        python jsc.py obs --filename=test_data/DataA.xlsx
+
+    @param filename String: Relative or absolute path to the file to 
+    estimate block size.
+    """
+    filename = os.path.abspath(filename)
+    size = os.path.getsize(filename)
+    print('')
+    aes_block = size // 50
+    print('Size of %s is %s bytes' % (filename, str(size)))
+    print('Minimum block size to reach AES-256 is ' + str(aes_block))
 
 
 def encrypt(filename, 
@@ -105,5 +126,6 @@ def decrypt(keyfilename, outputfile, encrypt_dir=''):
 
 if __name__ == '__main__':
     exposed_functions = {'decrypt': decrypt,
-                         'encrypt': encrypt}
+                         'encrypt': encrypt,
+                         'obs': sufficientBlockSize}
     fire.Fire(exposed_functions)

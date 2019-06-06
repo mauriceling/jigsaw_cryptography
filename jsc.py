@@ -52,7 +52,8 @@ def sufficientBlockSize(filename):
     print('')
     aes_block = size // 50
     print('Size of %s is %s bytes' % (filename, str(size)))
-    print('Minimum block size to reach AES-256 is ' + str(aes_block))
+    print('Minimum block size to reach AES-256 is %s bytes' % \
+        str(aes_block))
 
 
 def encrypt(filename, 

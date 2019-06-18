@@ -1,11 +1,11 @@
 '''
-Jigsaw Encryption System
+Jigsaw Cryptography System
 
 Date created: 25th May 2016
 
 Licence: Python Software Foundation License version 2
 
-Jigsaw Encryption System (JES) takes its inspiration from jigsaw puzzles. 
+Jigsaw Cryptography System (JCS) takes its inspiration from jigsaw puzzles. 
 Most cryptography methods is a 1-to-1 file method - during encryption, a 
 single unencrypted file (commonly known as plain text) is encrypted into 
 one encrypted file (commonly known as cipher text) using a key. 
@@ -21,7 +21,7 @@ text; the weakest link is in the 1-to-1 file mapping. Brute force attack
 is possible because all the plain text information exist in the cipher 
 text, though transformed.
 
-JES addresses the 1-to-1 file weakness by using 1-to-N file mapping. This 
+JCS addresses the 1-to-1 file weakness by using 1-to-N file mapping. This 
 is likened to taking a picture and make a jigsaw puzzle out of it. The 
 complexity of brute force attack increases exponentially with the number 
 of jigsaw pieces. By producing many files, it also makes it possible to 
@@ -37,9 +37,9 @@ the set of mixed alphanumeric with symbols (that is, abcdefghijklmnopqr
 stuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()-_+=~`[]{}|\:;"'
 <>,.?/), the total number of keys is 1.38 x 10**63 (94**32).
 
-How does this number of permutations compare with Jigsaw Encryption?
+How does this number of permutations compare with Jigsaw Cryptography?
 
-Assuming that Jigsaw Encryption is used to encrypt a 1 MB (1048576 bytes) 
+Assuming that Jigsaw Cryptography is used to encrypt a 1 MB (1048576 bytes) 
 file and split into 16 64-KB Jigsaw files, there are 2 x 10**13 
 permutations to assemble 16 64-KB files into the original 1 MB file using 
 Jigsaw version 1. 
@@ -181,13 +181,6 @@ class JigsawFile(JigsawCore):
     The following Jigsaw versions are implemented:
         - version 1: The original file is sliced and saved as a series of 
         smaller files.
-        - version 2: The original file is sliced into blocks. Each block is 
-        separated into 2 sub-blocks where the first sub-block is reversed 
-        and merged before saved as a file.
-        - version 2: The original file is sliced into blocks. Each block is 
-        separated into 2 sub-blocks where the first sub-block is reversed. 
-        This is following double transposition of the same number of bytes 
-        in the block before saved as a file.
     '''
     def __init__(self):
         '''Constructor method.'''
